@@ -66,6 +66,80 @@ window.addEventListener("scroll", ()=>{
     if(top > offset) sec.classList.add("show");
   });
 });
+/* ================= FIRE & EMBERS ================= */
+const canvas = document.getElementById("fire");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const embersCanvas = document.getElementById("embers");
+const ectx = embersCanvas.getContext("2d");
+embersCanvas.width = window.innerWidth;
+embersCanvas.height = window.innerHeight;
+
+// Particle তৈরি
+function createParticles(count, isEmber=false){
+  let arr=[];
+  for(let i=0;i<count;i++){
+    arr.push({
+      x: Math.random()*window.innerWidth,
+      y: Math.random()*window.innerHeight,
+      size: Math.random()*5+1,
+      speedY: Math.random()*2+1,
+      speedX: (Math.random()-0.5)*0.5,
+      alpha: Math.random()*0.5+0.3,
+      isEmber
+    });
+  }
+  return arr;
+}
+
+let particles = createParticles(120);
+let embers = createParticles(60, true);
+
+function drawParticles(arr, ctx){
+  arr.forEach(p=>{
+    if(p.isEmber){
+      ctx.fillStyle = `rgba(255,${Math.floor(Math.random()*100)},0,${p.alpha})`;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fill();
+      p.y -= p.speedY;
+      if(p.y<0) p.y = window.innerHeight;
+    } else {
+      const gradient = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size);
+      gradient.addColorStop(0,"rgba(255,255,255,0.8)");
+      gradient.addColorStop(0.3,"rgba(255,69,0,0.7)");
+      gradient.addColorStop(1,"rgba(0,0,0,0)");
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fill();
+      p.y -= p.speedY;
+      p.x += p.speedX;
+      if(p.y<0) p.y = window.innerHeight;
+      if(p.x<0) p.x = window.innerWidth;
+      if(p.x>window.innerWidth) p.x = 0;
+    }
+  });
+}
+
+function animateFire(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ectx.clearRect(0,0,canvas.width,canvas.height);
+  drawParticles(particles, ctx);
+  drawParticles(embers, ectx);
+  requestAnimationFrame(animateFire);
+}
+animateFire();
+
+// Window resize হলে canvas adjust হবে
+window.addEventListener('resize', ()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  embersCanvas.width = window.innerWidth;
+  embersCanvas.height = window.innerHeight;
+});
 
 /* ================= OPTIONAL FIRE ANIMATIONS ================= */
 // (You can copy your canvas fire/loader code here from your previous HTML)
