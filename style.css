@@ -1,0 +1,70 @@
+/* GENERAL */
+*{
+  margin:0; padding:0; box-sizing:border-box;
+  font-family:'Orbitron', sans-serif;
+  scroll-behavior:smooth;
+}
+body{background:black; color:white; overflow-x:hidden;}
+
+/* NAVBAR */
+nav{
+  position:fixed; width:100%;
+  background:rgba(0,0,0,0.8); padding:15px;
+  text-align:center; z-index:1000;
+  box-shadow:0 0 20px red;
+}
+nav a{
+  color:white; margin:0 20px; text-decoration:none; font-weight:bold;
+  transition:0.3s;
+}
+nav a:hover{
+  color:red; text-shadow:0 0 10px red,0 0 20px red;
+}
+
+/* HEADER */
+header{padding-top:120px; padding-bottom:80px; text-align:center;}
+header h1{font-size:55px; color:red; text-shadow:0 0 20px red,0 0 40px darkred;}
+header p{margin:10px 0;}
+
+/* SECTIONS */
+section{
+  padding:100px 20px; text-align:center;
+  opacity:0; transform:translateY(40px);
+  transition:1s;
+}
+section.show{opacity:1; transform:translateY(0);}
+.card{
+  background:rgba(20,0,0,0.8); padding:40px;
+  margin:auto; max-width:700px; border-radius:20px;
+  box-shadow:0 0 30px red; transition:0.5s;
+}
+.card:hover{transform:scale(1.02); box-shadow:0 0 50px red;}
+
+/* BUTTONS */
+.btn{
+  display:inline-block; margin:15px;
+  padding:15px 40px; background:red; color:white;
+  border-radius:50px; text-decoration:none;
+  transition:0.3s, box-shadow 0.8s ease-in-out;
+  box-shadow:0 0 10px red; position:relative; overflow:hidden;
+}
+.btn:hover{
+  background:black; color:red;
+  box-shadow:0 0 20px red,0 0 40px #ff4500,0 0 60px #ff6347,0 0 80px #ff0000;
+  transform:scale(1.05); text-shadow:0 0 10px #ff6347;
+}
+
+/* INPUTS */
+input, label{color:white; font-family:'Orbitron', sans-serif;}
+input{
+  background:rgba(255,255,255,0.05); border:none;
+  border-radius:10px; padding:10px; margin:5px 0 15px 0;
+  width:100%;
+}
+input:focus{outline:none; box-shadow:0 0 15px red;}
+
+/* FOOTER */
+footer{background:black; padding:30px; color:gray;}
+
+/* MEDIA */
+@media(max-width:600px){header h1{font-size:30px;}}
