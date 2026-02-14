@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIHAN X LIVE | Ultimate Gaming</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron', sans-serif;
+  scroll-behavior:smooth;
+}
+
+/* LOADER */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  transition: opacity 0.8s ease;
+}
+
+.loader-text {
+  position: absolute;
+  font-size: 36px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 20px #ff0000, 0 0 40px #ff4500, 0 0 60px #ff6347;
+  letter-spacing: 2px;
+  animation: pulse 1s infinite alternate;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1); text-shadow: 0 0 20px #ff0000, 0 0 40px #ff4500;}
+  50% {transform: scale(1.1); text-shadow: 0 0 40px #ff6347, 0 0 60px #ff4500;}
+  100% {transform: scale(1); text-shadow: 0 0 20px #ff0000, 0 0 40px #ff4500;}
+}
+
+#loader-fire {
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* MAIN BODY */
+body{
+  background:black;
+  color:white;
+  overflow-x:hidden;
+}
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  width:100%;
+  background:rgba(0,0,0,0.8);
+  padding:15px;
+  text-align:center;
+  z-index:1000;
+  box-shadow:0 0 20px red;
+}
+
+nav a{
+  color:white;
+  margin:0 20px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:red;
+  text-shadow:0 0 10px red, 0 0 20px red;
+}
+
+/* HEADER */
+header{
+  padding-top:120px;
+  padding-bottom:80px;
+  text-align:center;
+}
+
+header h1{
+  font-size:55px;
+  color:red;
+  text-shadow:0 0 20px red,0 0 40px darkred;
+}
+
+section{
+  padding:100px 20px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card{
+  background:rgba(20,0,0,0.8);
+  padding:40px;
+  margin:auto;
+  max-width:700px;
+  border-radius:20px;
+  box-shadow:0 0 30px red;
+  transition: 0.5s;
+}
+
+.card:hover{
+  transform: scale(1.02);
+  box-shadow:0 0 50px red;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin:15px;
+  padding:15px 40px;
+  background:red;
+  color:white;
+  border-radius:50px;
+  text-decoration:none;
+  transition:0.3s, box-shadow 0.8s ease-in-out;
+  box-shadow:0 0 10px red;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn:hover{
+  background:black;
+  color:red;
+  box-shadow:0 0 20px red, 0 0 40px #ff4500, 0 0 60px #ff6347, 0 0 80px #ff0000;
+  transform: scale(1.05);
+  text-shadow:0 0 10px #ff6347;
+}
+
+/* INPUTS */
+input, label{
+  color:white;
+  font-family:'Orbitron', sans-serif;
+}
+
+input{
+  background:rgba(255,255,255,0.05);
+  border:none;
+  border-radius:10px;
+  padding:10px;
+  margin:5px 0 15px 0;
+  width:100%;
+}
+
+input:focus{
+  outline:none;
+  box-shadow:0 0 15px red;
+}
+
+/* FOOTER */
+footer{
+  background:black;
+  padding:30px;
+  color:gray;
+}
+
+/* REVIEWS */
+#reviews .card p{
+  margin:10px 0;
+}
+
+@media(max-width:600px){
+  header h1{font-size:30px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <canvas id="loader-fire"></canvas>
+  <div class="loader-text">RIHAN X LIVE</div>
+</div>
+
+<!-- MAIN FIRE & EMBERS CANVAS -->
+<canvas id="fire"></canvas>
+<canvas id="embers"></canvas>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">Player</a>
+<a href="#live">Live</a>
+<a href="#social">Social</a>
+<a href="#business">Business</a>
+<a href="#tournament">Tournament</a>
+<a href="#reviews">Reviews</a>
+</nav>
+
+<header id="home">
+<h1>🔥 RIHAN X LIVE 🔥</h1>
+<p>Elite Free Fire Warrior</p>
+<a href="#live" class="btn">WATCH LIVE</a>
+</header>
+
+<section id="about">
+<div class="card">
+<h2>🎮 Player Info</h2>
+<p><strong>IGN:</strong> RIHAN X LIVE</p>
+<p><strong>UID:</strong> 660468373</p>
+<p><strong>Server:</strong> Bangladesh</p>
+</div>
+</section>
+
+<section id="live">
+<div class="card">
+<h2>🔴 Live Stream</h2>
+<p>Everyday 8PM - 11PM (BD Time)</p>
+</div>
+</section>
+
+<section id="social">
+<div class="card">
+<h2>🌐 Follow Me</h2>
+<a href="#" class="btn">YouTube</a>
+<a href="#" class="btn">Facebook</a>
+<a href="#" class="btn">Instagram</a>
+<a href="#" class="btn">Discord</a>
+</div>
+</section>
+
+<section id="business">
+  <div class="card">
+    <h2>📧 Business / Contact</h2>
+    <p>For sponsorships, collaborations, or business inquiries:</p>
+    <p><strong>Email:</strong> <a href="mailto:contact@rihanxlive.com" style="color:red; text-decoration:underline;">contact@rihanxlive.com</a></p>
+  </div>
+</section>
+
+<section id="tournament">
+  <div class="card">
+    <h2>🏆 Tournament Registration</h2>
+    <p>Sign up to participate in upcoming tournaments:</p>
+    <form id="tournamentForm" style="text-align:left; max-width:400px; margin:auto;">
+      <label for="name">Player Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="ign">In-Game Name (IGN):</label><br>
+      <input type="text" id="ign" name="ign" required><br>
+      <label for="uid">UID:</label><br>
+      <input type="text" id="uid" name="uid" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <button type="submit" class="btn" style="width:100%; margin-top:10px;">Register</button>
+    </form>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="card">
+    <h2>🌟 Player Reviews</h2>
+    <p>What the community says about RIHAN X LIVE:</p>
+    <div style="margin-top:20px;">
+      <p><strong>Ali R.</strong> ⭐⭐⭐⭐⭐ – “Best Free Fire content, very engaging!”</p>
+      <p><strong>Sarah K.</strong> ⭐⭐⭐⭐☆ – “Love the live streams and pro tips!”</p>
+      <p><strong>Tanvir H.</strong> ⭐⭐⭐⭐⭐ – “Epic gameplay, super interactive!”</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+© 2026 RIHAN X LIVE | Ultimate Mode
+</footer>
+
+<script>
+/* ================= LOADER ================= */
+const loaderCanvas = document.getElementById("loader-fire");
+const lctx = loaderCanvas.getContext("2d");
+loaderCanvas.width = window.innerWidth;
+loaderCanvas.height = window.innerHeight;
+
+function createParticles(count){
+  let arr = [];
+  for(let i=0;i<count;i++){
+    arr.push({
+      x: Math.random()*window.innerWidth,
+      y: Math.random()*window.innerHeight,
+      size: Math.random()*5+1,
+      speedY: Math.random()*2+1,
+      speedX: (Math.random()-0.5)*0.5
+    });
+  }
+  return arr;
+}
+
+let loaderParticles = createParticles(80);
+let loaderRunning = true;
+
+function drawParticles(particlesArray, ctx, isEmber=false){
+  particlesArray.forEach(p=>{
+    if(isEmber){
+      ctx.fillStyle = `rgba(255,${Math.floor(Math.random()*100)},0,${p.alpha || 1})`;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fill();
+      p.y -= p.speedY;
+      if(p.y<0) p.y = window.innerHeight;
+    } else {
+      const gradient = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size);
+      gradient.addColorStop(0,"rgba(255,255,255,0.8)");
+      gradient.addColorStop(0.3,"rgba(255,69,0,0.7)");
+      gradient.addColorStop(1,"rgba(0,0,0,0)");
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fill();
+      p.y -= p.speedY;
+      p.x += p.speedX;
+      if(p.y < 0) p.y = window.innerHeight;
+      if(p.x < 0) p.x = window.innerWidth;
+      if(p.x > window.innerWidth) p.x = 0;
+    }
+  });
+}
+
+function animateLoader(){
+  if(!loaderRunning) return;
+  lctx.clearRect(0,0,loaderCanvas.width, loaderCanvas.height);
+  drawParticles(loaderParticles, lctx);
+  requestAnimationFrame(animateLoader);
+}
+animateLoader();
+
+window.onload = function() {
+  setTimeout(()=>{
+    const loader = document.getElementById("loader");
+    loader.style.opacity = 0;
+    loaderRunning = false; // stop loader animation
+    setTimeout(()=>loader.style.display="none",500);
+  },1500);
+};
+
+/* ================= MAIN FIRE & EMBERS ================= */
+const canvas = document.getElementById("fire");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const embersCanvas = document.getElementById("embers");
+const ectx = embersCanvas.getContext("2d");
+embersCanvas.width = window.innerWidth;
+embersCanvas.height = window.innerHeight;
+
+let particles = createParticles(120);
+let embers = [];
+for(let i=0;i<60;i++){
+  embers.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    size: Math.random()*2+1,
+    speedY: Math.random()*0.2+0.1,
+    alpha: Math.random()*0.5+0.3
+  });
+}
+
+function drawMainParticles(){
+  drawParticles(particles, ctx);
+  drawParticles(embers, ectx, true);
+}
+
+/* FIRE BURSTS */
+const allSections = document.querySelectorAll("section");
+let activeBursts = [];
+
+function createBurst(x, y){
+  let burstParticles = [];
+  for(let i=0;i<30;i++){
+    burstParticles.push({x,y,size:Math.random()*4+2,speedX:(Math.random()-0.5)*4,speedY:Math.random()*-3-1,alpha:1});
+  }
+  return burstParticles;
+}
+
+function animateBursts(){
+  activeBursts.forEach(burst=>{
+    burst.particles.forEach(p=>{
+      ctx.fillStyle = `rgba(255,${Math.floor(Math.random()*150)},0,${p.alpha})`;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fill();
+      p.x+=p.speedX;
+      p.y+=p.speedY;
+      p.alpha-=0.03;
+    });
+    burst.particles = burst.particles.filter(p=>p.alpha>0);
+  });
+  activeBursts = activeBursts.filter(b=>b.particles.length>0);
+  requestAnimationFrame(animateBursts);
+}
+
+window.addEventListener("scroll", ()=>{
+  const scrollTop = window.scrollY + window.innerHeight;
+  allSections.forEach(sec=>{
+    if(!sec.dataset.burstTriggered && scrollTop > sec.offsetTop+100){
+      const rect = sec.getBoundingClientRect();
+      const x = rect.left + rect.width/2;
+      const y = rect.top + window.scrollY + rect.height/2;
+      activeBursts.push({particles:createBurst(x,y)});
+      sec.dataset.burstTriggered="true";
+    }
+  });
+});
+
+/* BUTTON SPARKS */
+const sparkParticles=[];
+document.querySelectorAll('.btn').forEach(btn=>{
+  btn.addEventListener('mouseenter',(e)=>{
+    const rect=btn.getBoundingClientRect();
+    for(let i=0;i<15;i++){
+      sparkParticles.push({
+        x: rect.left + Math.random()*rect.width,
+        y: rect.top + Math.random()*rect.height,
+        size: Math.random()*3+1,
+        speedX: (Math.random()-0.5)*2,
+        speedY: (Math.random()-1.5)*2,
+        alpha:1
+      });
+    }
+  });
+});
+
+function animateSparks(){
+  sparkParticles.forEach((p,i)=>{
+    ctx.fillStyle = `rgba(255,${Math.floor(Math.random()*150)},0,${p.alpha})`;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fill();
+    p.x+=p.speedX;
+    p.y+=p.speedY;
+    p.alpha-=0.05;
+    if(p.alpha<=0) sparkParticles.splice(i,1);
+  });
+  requestAnimationFrame(animateSparks);
+}
+
+/* MAIN ANIMATION LOOP */
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ectx.clearRect(0,0,canvas.width,canvas.height);
+  drawMainParticles();
+  animateBursts();
+  animateSparks();
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", ()=>{
+  sections.forEach(sec=>{
+    const top = window.scrollY;
+    const offset = sec.offsetTop - 400;
+    if(top > offset){
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* TOURNAMENT FORM */
+document.getElementById('tournamentForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert('Thank you! Your tournament registration has been received.');
+  this.reset();
+});
+</script>
+
+</body>
+        </html>
