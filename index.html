@@ -73,26 +73,29 @@ canvas{
 
 /* NAVBAR */
 nav{
-  position:fixed;
-  width:100%;
-  background:rgba(0,0,0,0.8);
-  padding:15px;
-  text-align:center;
-  z-index:1000;
-  box-shadow:0 0 20px red;
+  position: fixed;
+  top:0;
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  z-index: 1000;
+  box-shadow: 0 0 20px red;
 }
 
 nav a{
-  color:white;
-  margin:0 20px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
 nav a:hover{
-  color:red;
-  text-shadow:0 0 10px red, 0 0 20px red;
+  color: red;
+  text-shadow: 0 0 10px red, 0 0 20px red;
 }
 
 /* HEADER */
@@ -186,11 +189,6 @@ footer{
   color:gray;
 }
 
-/* REVIEWS */
-#reviews .card p{
-  margin:10px 0;
-}
-
 @media(max-width:600px){
   header h1{font-size:30px;}
 }
@@ -215,14 +213,12 @@ footer{
 <a href="#live">Live</a>
 <a href="#social">Social</a>
 <a href="#business">Business</a>
-<a href="#tournament">Tournament</a>
-<a href="#reviews">Reviews</a>
 </nav>
 
 <header id="home">
 <h1>🔥 RIHAN X LIVE 🔥</h1>
-<p>Elite Free Fire Warrior</p>
-<a href="#live" class="btn">WATCH LIVE</a>
+<p>Free Fire Live Streamar</p>
+<a href="#live" class="btn">SCROLL ON</a>
 </header>
 
 <section id="about">
@@ -235,19 +231,24 @@ footer{
 </section>
 
 <section id="live">
-<div class="card">
-<h2>🔴 Live Stream</h2>
-<p>Everyday 8PM - 11PM (BD Time)</p>
-</div>
+  <div class="card">
+    <h2>🔴 Live Stream</h2>
+    <p>Everyday 8PM - 11PM (BD Time)</p>
+
+    <!-- Follow Buttons -->
+    <div style="margin-top:20px;">
+    
+    </div>
+  </div>
 </section>
 
 <section id="social">
 <div class="card">
 <h2>🌐 Follow Me</h2>
-<a href="#" class="btn">YouTube</a>
-<a href="#" class="btn">Facebook</a>
-<a href="#" class="btn">Instagram</a>
-<a href="#" class="btn">Discord</a>
+<a href="https://youtube.com/@rihanxlivee?si=Kww-CSvGCtSvG6NM" class="btn">YouTube</a>
+<a href="https://www.facebook.com/share/1DNbZGEaRH/" class="btn">Facebook</a>
+<a href="https://www.instagram.com/rihansk1.0?igsh=MTd1dHE4bWdwMmVsMQ==" class="btn">Instagram</a>
+<a href="https://discord.gg/FxgnsvJeFE" class="btn">Discord</a>
 </div>
 </section>
 
@@ -255,42 +256,12 @@ footer{
   <div class="card">
     <h2>📧 Business / Contact</h2>
     <p>For sponsorships, collaborations, or business inquiries:</p>
-    <p><strong>Email:</strong> <a href="mailto:contact@rihanxlive.com" style="color:red; text-decoration:underline;">contact@rihanxlive.com</a></p>
-  </div>
-</section>
-
-<section id="tournament">
-  <div class="card">
-    <h2>🏆 Tournament Registration</h2>
-    <p>Sign up to participate in upcoming tournaments:</p>
-    <form id="tournamentForm" style="text-align:left; max-width:400px; margin:auto;">
-      <label for="name">Player Name:</label><br>
-      <input type="text" id="name" name="name" required><br>
-      <label for="ign">In-Game Name (IGN):</label><br>
-      <input type="text" id="ign" name="ign" required><br>
-      <label for="uid">UID:</label><br>
-      <input type="text" id="uid" name="uid" required><br>
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" required><br>
-      <button type="submit" class="btn" style="width:100%; margin-top:10px;">Register</button>
-    </form>
-  </div>
-</section>
-
-<section id="reviews">
-  <div class="card">
-    <h2>🌟 Player Reviews</h2>
-    <p>What the community says about RIHAN X LIVE:</p>
-    <div style="margin-top:20px;">
-      <p><strong>Ali R.</strong> ⭐⭐⭐⭐⭐ – “Best Free Fire content, very engaging!”</p>
-      <p><strong>Sarah K.</strong> ⭐⭐⭐⭐☆ – “Love the live streams and pro tips!”</p>
-      <p><strong>Tanvir H.</strong> ⭐⭐⭐⭐⭐ – “Epic gameplay, super interactive!”</p>
-    </div>
+    <p><strong>Email:</strong> <a href="mailto:sheikhrihan138@gmail.com" style="color:red; text-decoration:underline;">sheikhrihan138@gmail.com</a></p>
   </div>
 </section>
 
 <footer>
-© 2026 RIHAN X LIVE | Ultimate Mode
+© 2026 RIHAN X LIVE | All RIGHTS ♠
 </footer>
 
 <script>
@@ -485,14 +456,7 @@ window.addEventListener("scroll", ()=>{
     }
   });
 });
-
-/* TOURNAMENT FORM */
-document.getElementById('tournamentForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  alert('Thank you! Your tournament registration has been received.');
-  this.reset();
-});
 </script>
 
 </body>
-        </html>
+</html>
